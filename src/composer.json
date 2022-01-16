@@ -1,0 +1,15 @@
+{
+  "authors": [
+    {
+      "name": "Amir Salkhori",
+      "email": "amiryarke@gmail.com"
+    }
+  ],
+  "name": "root/html",
+    "autoload": {
+        "psr-4": {
+          "App\\": "./"
+        }
+    },
+    "require": {}
+}
