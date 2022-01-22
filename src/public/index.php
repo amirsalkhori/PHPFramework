@@ -4,13 +4,9 @@ require dirname(__DIR__).'/vendor/autoload.php';
 
 use App\core\Application;
 
-$app = new Application();
+$app = new Application(dirname(__DIR__));
 
-$app->router->get('/', function (){
-    return 'Hello World';
-});
-$app->router->get('contact', function (){
-    return 'Contact page';
-});
+$app->router->get('/','home');
+$app->router->get('/contact', 'contact');
 
 $app->run();
