@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use \App\Core\AbstractController;
+
 class Application
 {
 
@@ -10,7 +12,7 @@ class Application
     public Request $request;
     public Response $response;
     public static Application $app;
-
+    public AbstractController $abstractController;
     public function __construct($rootPath)
     {
         self::$ROOT_DIR = $rootPath;
@@ -25,4 +27,19 @@ class Application
         $this->router->resolve();
     }
 
+    /**
+     * @return AbstractController
+     */
+    public function getAbstractController(): AbstractController
+    {
+        return $this->abstractController;
+    }
+
+    /**
+     * @param AbstractController $abstractController
+     */
+    public function setAbstractController(AbstractController $abstractController): void
+    {
+        $this->abstractController = $abstractController;
+    }
 }

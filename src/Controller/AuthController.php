@@ -11,7 +11,8 @@ class AuthController extends AbstractController
 {
     public function login(Request $request)
     {
-        return $this->render('login', ['login'=>'page']);
+        $this->setLayout('auth');
+        return $this->render('login');
     }
 
     public function register(Request $request)
@@ -19,6 +20,7 @@ class AuthController extends AbstractController
         if ($request->isPost()){
             return 'Submitted data';
         }
+        $this->setLayout('auth');
         return $this->render('register');
     }
 }
