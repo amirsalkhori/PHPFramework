@@ -23,10 +23,30 @@ services:
     ports:
       - 9000:9000
 
-  mongo:
-    container_name: mongodb
-    image: mongo
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MYSQL_DATABASE: 'mvc_framework'
+      MYSQL_USER: 'amir'
+      MYSQL_PASSWORD: 'changeMe'
+      MYSQL_ROOT_PASSWORD: 'changeMe'
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+    db_data:
+
+
+#  mongo:
+#    container_name: mongodb
+#    image: mongo
+#    restart: always
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: example
